@@ -13,3 +13,6 @@ client_scripts {
     "source/client.lua"
 }
 
+dependencies {
+    'menuv'
+}
