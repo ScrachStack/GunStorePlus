@@ -35,12 +35,12 @@ function CreateGunStoreButtons()
                 value = weaponData[2],
                 description = weaponData[4],
                 select = function(btn)
-                    if config.usenoframework then 
+              
                     BuyItem(weaponData[2])
-                    elseif config.useNDCore then 
+                
                         
                         
-                end 
+  
                 end
             })
         end
@@ -63,13 +63,12 @@ end
 
 
 function BuyItem(weaponHash)
-    if config.usenoframework then
         GiveWeaponToPed(PlayerPedId(), GetHashKey(weaponHash), 100, false, true)
         SetNotificationTextEntry("STRING")
         AddTextComponentString("You've received a " .. "~b~" .. weaponHash .. "~w~.")
         DrawNotification(true, true)
     end
-end
+
 
 local gunStoreMarkers = {}
 
