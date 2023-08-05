@@ -3,7 +3,7 @@ game "gta5"
 
 title "Pow Pow Menu"
 author "Kezi#2706"
-version "v1.1"
+version "v2.0"
 
 shared_script "config.lua"
 server_script "source/server.lua"
