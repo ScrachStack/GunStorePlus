@@ -102,19 +102,19 @@ end
 CreateGunStoreMarkers()
 Citizen.CreateThread(function()
     while true do
-        Citizen.Wait(10)
+        Wait(0)
         if IsNearGunStoreMarker() then
-
-       
             SetTextComponentFormat("STRING")
             AddTextComponentString("Press ~INPUT_PICKUP~ to open the gun store")
             DisplayHelpTextFromStringLabel(0, 0, 1, -1)
 
             if IsControlJustReleased(0, 38) then
-                menu:ClearItems()
-                CreateGunStoreButtons()
-                menu:Open()
+                    menu:ClearItems()
+                    CreateGunStoreButtons()
+                    menu:Open()
             end
+        else
+            Wait(500)  
         end
     end
 end)
