@@ -36,7 +36,7 @@ function CreateGunStoreButtons()
                 description = weaponData[4],
                 select = function(btn)
               
-                    BuyItem(weaponData[2])
+                    BuyItem(weaponData[2], weaponData[5])
                 
                         
                         
@@ -62,12 +62,16 @@ end
 
 
 
-function BuyItem(weaponHash)
+function BuyItem(weaponHash, price)
+    if config.framework == 'esx' or config.framework == 'qbcore' then
+        TriggerServerEvent('alv:purchaseWeapon', GetPlayerServerId(PlayerId()), weaponHash, price)
+    else
         GiveWeaponToPed(PlayerPedId(), GetHashKey(weaponHash), 100, false, true)
         SetNotificationTextEntry("STRING")
         AddTextComponentString("You've received a " .. "~b~" .. weaponHash .. "~w~.")
         DrawNotification(true, true)
     end
+end
 
 
 local gunStoreMarkers = {}
@@ -80,8 +84,8 @@ function CreateGunStoreMarkers()
             color = { r = 255, g = 0, b = 0 },
             visible = true
         }
-
-        table.insert(gunStoreMarkers, marker)
+        
+        gunStoreMarkers[#gunStoreMarkers+1] = {marker}
     end
 end
 
