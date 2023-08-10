@@ -1,7 +1,6 @@
 # GunStorePlus
 ## MenuV Based gunstore script
-This script is standalone but can easily have esx qb nd ox support!
-
+standalone, esx, qb
 
 Discord 
 https://discord.gg/cfxdev
